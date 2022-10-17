@@ -321,12 +321,12 @@ internal class Date
             // Пока даты не равны, вычисляем следующую дату.
             while (!(year1 == year2 && month1 == month2 && day1 == day2))
             {
-                switch (month1)
+                switch ((Months)month1)
                 {
-                    case (int)Months.April: // Расчет следующей даты за введенной, для месяцев c 30 днями.
-                    case (int)Months.June:
-                    case (int)Months.September:
-                    case (int)Months.November:
+                    case Months.April: // Расчет следующей даты за введенной, для месяцев c 30 днями.
+                    case Months.June:
+                    case Months.September:
+                    case Months.November:
                         day1++;
                         if (day1 > 30)
                         {
@@ -340,13 +340,13 @@ internal class Date
                         }
                         break;
 
-                    case (int)Months.January: // Расчет следующей даты за введенной, для месяцев c 31 днем.
-                    case (int)Months.March:
-                    case (int)Months.May:
-                    case (int)Months.July:
-                    case (int)Months.August:
-                    case (int)Months.October:
-                    case (int)Months.December:
+                    case Months.January: // Расчет следующей даты за введенной, для месяцев c 31 днем.
+                    case Months.March:
+                    case Months.May:
+                    case Months.July:
+                    case Months.August:
+                    case Months.October:
+                    case Months.December:
                         day1++;
                         if (day1 > 31)
                         {
@@ -360,7 +360,7 @@ internal class Date
                         }
                         break;
 
-                    case (int)Months.February: // Расчет следующей даты за введенной, для февраля (как высокосного так и не високосного).
+                    case Months.February: // Расчет следующей даты за введенной, для февраля (как высокосного так и не високосного).
                         day1++;
                         if (!(year1 % 400 == 0 || (year1 % 100 != 0 && year1 % 4 == 0)) && (day1 > 28)) // Не високосный.
                         {
